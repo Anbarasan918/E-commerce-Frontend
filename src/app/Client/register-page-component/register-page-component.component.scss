@@ -1,0 +1,22 @@
+.full-width {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin-top: 16px;
+    width: 100%;
+}
+
+
+.link-center {
+    text-align: center;
+    margin: 16px 0;
+    font-weight: bold !important;
+    /* Adds some spacing above and below the link */
+}

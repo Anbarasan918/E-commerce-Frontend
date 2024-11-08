@@ -1,0 +1,80 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Product Listing and Creation Page</span>
+    <span class="spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!--product Creation Form-->
+<mat-card class="form-card">
+  <!-- <mat-card-title>Login</mat-card-title> -->
+  <mat-card-content>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmmitProductDetails()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Product Name</mat-label>
+        <input
+          matInput
+          type="text"
+          id="productName"
+          name="productName"
+          placeholder="Please Enter the Product Name"
+          formControlName="product_name"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Brand</mat-label>
+        <input
+          matInput
+          type="text"
+          id="brand"
+          name="brand"
+          placeholder="Please Enter the Brand"
+          formControlName="brand"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category" name="category">
+          <mat-option
+            *ngFor="let item of categoriesList"
+            [value]="item.id"
+            (onSelectionChange)="setCategoryName(item)"
+          >
+            {{ item.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Inventory</mat-label>
+        <input
+          matInput
+          type="Number"
+          id="inventory"
+          name="inventory"
+          placeholder="Please Enter the Inventory"
+          formControlName="inventory"
+        />
+      </mat-form-field>
+
+      <!-- <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Category Description</mat-label>
+        <mat-select
+          hidden
+          formControlName="category_Description"
+          name="categoryDescription"
+        >
+          <mat-option *ngFor="let item of categoriesList" [value]="item.name">
+            {{ item.id }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+
+      <button mat-raised-button color="primary" class="full-width">
+        Submit
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

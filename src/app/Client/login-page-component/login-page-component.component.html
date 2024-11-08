@@ -1,0 +1,56 @@
+<!-- <div>
+    <div class="col-md-12">
+        <div class="">
+            <div> -->
+<!-- Login page header -->
+<!-- <div>
+                    <form [formGroup]="loginFormSection"> -->
+<!-- Login page inner card fields and button -->
+<!-- <div> -->
+<!-- Fields for user input-->
+<!-- <div>
+                                <label> E-Mail ID :</label>
+                                <input type="email" id="emailId" name="UserName" placeholder="Please Enter the EmailID"
+                                    [formControl]="loginFormSection.controls['emailId']">
+                            </div>
+
+                            <div>
+                                <label>PassWord :</label>
+                                <input type="password" id="password" name="password"
+                                    placeholder="Please enter the Password"
+                                    [formControl]="loginFormSection.controls['password']">
+                            </div>
+                            <a href="/registerPage">Click here to proceed Registration</a>
+                            <div>
+                                <button (click)="onSubmmitLoginPageDetails()" type="button">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<mat-card class="form-card">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="loginFormSection" (ngSubmit)="onSubmmitLoginPageDetails()">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>E-Mail ID</mat-label>
+                <input matInput type="email" id="emailId" name="emailId" placeholder="Please Enter the EmailID"
+                    formControlName="email_id">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Enter your password" formControlName="password">
+            </mat-form-field>
+            <div class="link-center">
+                <a [routerLink]="['/registerPage']">Click here to proceed Registration</a>
+            </div>
+            <button mat-raised-button color="primary" class="full-width">Login</button>
+        </form>
+    </mat-card-content>
+</mat-card>

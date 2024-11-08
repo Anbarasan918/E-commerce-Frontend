@@ -1,0 +1,47 @@
+<!-- <mat-toolbar color="primary">
+
+    <mat-toolbar-row>
+        <span>Product Listing and Creation Page</span>
+        <span class="spacer"></span>
+
+        <button mat-button [routerLink]="['/productCreation']">Add product</button>
+
+        <span class="spacerRight"></span>
+    </mat-toolbar-row>
+</mat-toolbar> -->
+
+<app-product-creation></app-product-creation>
+<!-- Product Listing -->
+<button (click)="refreshProductListing()">Refresh</button>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- product_name Column -->
+  <ng-container matColumnDef="product_name">
+    <th mat-header-cell *matHeaderCellDef>Product Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.product_name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="brand">
+    <th mat-header-cell *matHeaderCellDef>Brand</th>
+    <td mat-cell *matCellDef="let element">{{ element.brand }}</td>
+  </ng-container>
+
+  <!-- category_Description Column -->
+  <ng-container matColumnDef="category_Description">
+    <th mat-header-cell *matHeaderCellDef>Category</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.category_Description }}
+    </td>
+  </ng-container>
+
+  <!-- inventory Column -->
+  <ng-container matColumnDef="inventory">
+    <th mat-header-cell *matHeaderCellDef>Inventory</th>
+    <td mat-cell *matCellDef="let element">{{ element.inventory }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

@@ -1,0 +1,135 @@
+<!-- <div>
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <form [formGroup]="bioSection">
+                           
+                            <div>
+                                <label for="Name">Name : </label>
+                                <input type="text" id="name" name="userName" placeholder="Enter the Name"
+                                    [formControl]="bioSection.controls['userName']">
+                            </div>
+
+                            <div>
+                                <label for="Email">Email Id : </label>
+                                <input type="text" id="Email" name="emailId" placeholder="Enter the Email Id"
+                                    [formControl]="bioSection.controls['emailId']">
+                            </div>
+
+                            <div>
+                                <label for="mobile">Mobile Number : </label>
+                                <input type="number" id="mobileNumber" name="mobileNumber"
+                                    placeholder="Enter the Mobile Number"
+                                    [formControl]="bioSection.controls['mobileNumber']">
+                            </div>
+
+                            <div>
+                                <label for="department">Department : </label>
+                                <input type="text" id="department" name="department" placeholder=""
+                                    [formControl]="bioSection.controls['department']">
+                            </div>
+
+                            <div>
+                                <label for="designation">Designation : </label>
+                                <input type="text" id="designation" name="designation" placeholder=""
+                                    [formControl]="bioSection.controls['designation']">
+                            </div>
+
+                            <div>
+                                <label for="employeeCode">Employee Code : </label>
+                                <input type="text" id="employeeCode" name="employeeCode" placeholder=""
+                                    [formControl]="bioSection.controls['employeeCode']">
+                            </div>
+
+                            <div>
+                                <label for="newPassword">New Password : </label>
+                                <input type="password" id="newPassword" name="newPassword" placeholder=""
+                                    [formControl]="bioSection.controls['newPassword']">
+                            </div>
+
+                            <div>
+                                <label for="confirmPassword">Confirm Password : </label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder=""
+                                    [formControl]="bioSection.controls['confirmPassword']">
+                            </div>
+
+                            <div>
+                                <button (click)="onSubmmitRegisterPageDetails()" type="button">Register &
+                                    Proceed</button>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<mat-card class="form-card">
+    <mat-card-title>Registration Page</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="bioSection">
+            <!-- Registration form page-->
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>User Id</mat-label>
+                <input matInput type="number" id="userid" name="userid" placeholder="Enter the User Id"
+                    formControlName="user_id">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" id="name" name="userName" placeholder="Enter the Name"
+                    formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Email Id</mat-label>
+                <input matInput type="email" id="emailid" name="emailId" placeholder="Enter the Email Id"
+                    formControlName="email_id">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Mobile Number</mat-label>
+                <input matInput type="number" id="mobileNumber" name="mobileNumber"
+                    placeholder="Enter the Mobile Number" formControlName="mobile_number">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Gender</mat-label>
+                <input matInput type="text" id="gender" name="gender" placeholder="Enter the Gender"
+                    formControlName="gender">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Age</mat-label>
+                <input matInput type="number" id="age" name="age" placeholder="Enter the Age" formControlName="age">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>New Password</mat-label>
+                <input matInput type="password" id="newPassword" name="newPassword" placeholder="Enter the New Password"
+                    formControlName="newPassword">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" id="confirmPassword" name="confirmPassword"
+                    placeholder="Confirm Password" formControlName="confirmPassword">
+            </mat-form-field>
+
+            <div class="link-center">
+                <a [routerLink]="['/loginPage']">Click here to route to Login page</a>
+            </div>
+
+            <div>
+                <button mat-raised-button color="primary" (click)="onSubmmitRegisterPageDetails()"
+                    type="button">Register &
+                    Proceed</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

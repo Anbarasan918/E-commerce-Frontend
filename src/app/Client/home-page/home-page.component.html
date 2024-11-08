@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Ecommerce HomePage</span>
+    <span class="spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/categoryCreation']">
+        Create Categories
+      </button>
+      <button mat-menu-item [routerLink]="['/productLisingAndCreation']">
+        Products
+      </button>
+      <button mat-menu-item [routerLink]="['/order']">My orders</button>
+      <button mat-menu-item [routerLink]="['/cart']">My Cart</button>
+    </mat-menu>
+
+    <button mat-button [routerLink]="['/login']">Login</button>
+  </mat-toolbar-row>
+</mat-toolbar>

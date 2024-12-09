@@ -8,6 +8,7 @@ import { CartPageComponent } from './Client/client/cart-page/cart-page.component
 import { ProductListingComponent } from './Client/client/product-listing/product-listing.component';
 import { ProductCreationComponent } from './Client/client/product-creation/product-creation.component';
 import { CategoryCreationComponent } from './Client/client/category-creation/category-creation.component';
+import { CategoryListingComponent } from './Client/client/category-listing/category-listing.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'loginPage', pathMatch: 'full' },
@@ -15,10 +16,11 @@ const routes: Routes = [
   { path: 'registerPage', component: RegisterPageComponentComponent },
   { path: 'homePage', component: HomePageComponent },
   { path: 'productLisingAndCreation', component: ProductListingComponent },
+  { path: 'categoryCreationAndListing', component: CategoryListingComponent},
   { path: 'order', component: OrderPageComponent },
   { path: 'cart', component: CartPageComponent },
   // { path: 'productCreation', component: ProductCreationComponent },
-  { path: 'categoryCreation', component: CategoryCreationComponent }
+  // { path: 'categoryCreation', component: CategoryCreationComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '../../common.service';
 
@@ -16,6 +16,8 @@ export class ProductCreationComponent implements OnInit {
   selectedValue: any;
   productForm!: FormGroup;
   categoriesList : Categories[] = [];
+  localConfig: any ={};
+  @Input() editedDetail:any;
 
   constructor(private formBuilder: FormBuilder,
     private commonService: CommonService
@@ -32,6 +34,12 @@ export class ProductCreationComponent implements OnInit {
     })
     this.retrieveCatagories();
     
+    this.localConfig.isEditedDetailsFound= true;
+    if(this.editedDetail !=null && this.editedDetail !=undefined){
+      console.log("From the parent component " , this.editedDetail.value.editedDetail);
+      this.productForm.patchValue(this.editedDetail.value.editedDetail);
+      this.localConfig.isEditedDetailsFound= false;
+    }
   }
 
   setCategoryName(selectedItem : any){

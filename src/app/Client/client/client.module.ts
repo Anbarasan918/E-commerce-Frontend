@@ -19,6 +19,10 @@ import { ProductCreationComponent } from './product-creation/product-creation.co
 import { CategoryCreationComponent } from './category-creation/category-creation.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import { CategoryListingComponent } from './category-listing/category-listing.component';
+import { MatIconModule } from '@angular/material/icon';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -32,7 +36,9 @@ import { MatSelectModule } from '@angular/material/select';
     CartPageComponent,
     ProductListingComponent,
     ProductCreationComponent,
-    CategoryCreationComponent
+    CategoryCreationComponent,
+    CategoryListingComponent,
+    EditDialogComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule, HttpClientModule,
@@ -44,7 +50,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatMenuModule,
     MatToolbarModule,
     RouterModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatDialogModule
   ]
 })
 export class ClientModule { }

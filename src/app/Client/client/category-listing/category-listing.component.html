@@ -1,6 +1,6 @@
-<app-product-creation></app-product-creation>
-<!-- Product Listing -->
-<!-- <button (click)="refreshProductListing()">Refresh</button> -->
+<app-category-creation></app-category-creation>
+
+<!-- <button (click)="refreshCategoryListing()">Refresh</button> -->
 <table
   mat-table
   [dataSource]="dataSource"
@@ -11,28 +11,14 @@
           The actual rendered columns are set as a property on the row definition" -->
 
   <!-- product_name Column -->
-  <ng-container matColumnDef="product_name">
-    <th mat-header-cell *matHeaderCellDef>Product Name</th>
-    <td mat-cell *matCellDef="let element">{{ element.product_name }}</td>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Category Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="brand">
-    <th mat-header-cell *matHeaderCellDef>Brand</th>
-    <td mat-cell *matCellDef="let element">{{ element.brand }}</td>
-  </ng-container>
-
-  <!-- category_Description Column -->
-  <ng-container matColumnDef="category_Description">
-    <th mat-header-cell *matHeaderCellDef>Category</th>
-    <td mat-cell *matCellDef="let element">
-      {{ element.category_Description }}
-    </td>
-  </ng-container>
-
-  <!-- inventory Column -->
-  <ng-container matColumnDef="inventory">
-    <th mat-header-cell *matHeaderCellDef>Inventory</th>
-    <td mat-cell *matCellDef="let element">{{ element.inventory }}</td>
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let element">{{ element.description }}</td>
   </ng-container>
 
   <ng-container matColumnDef="edit">
@@ -55,7 +41,7 @@
 
   <ng-container matColumnDef="refresh">
     <th mat-header-cell *matHeaderCellDef>
-      <button mat-icon-button (click)="refreshProductListing()">
+      <button mat-icon-button (click)="refreshCategoryListing()">
         <mat-icon>refresh</mat-icon>
       </button>
     </th>

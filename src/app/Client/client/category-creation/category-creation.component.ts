@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '../../common.service';
 
 @Component({
@@ -8,16 +8,26 @@ import { CommonService } from '../../common.service';
   styleUrls: ['./category-creation.component.scss']
 })
 export class CategoryCreationComponent implements OnInit {
-  categoryCreationForm:any;
+  categoryCreationForm!:FormGroup;
   constructor(private formBuilder: FormBuilder,
     private commonService: CommonService) { }
+
+    @Input() editedDetail:any;
+    localConfig :any ={};
 
   ngOnInit(): void {
     this.categoryCreationForm = this.formBuilder.group({
       id: ['', Validators.required],
-      category_name: ['', Validators.required],
+      name: ['', Validators.required],
       description: ['', Validators.required]
     })
+    this.localConfig.isEditedDetailsFound= true;
+    if(this.editedDetail != null && this.editedDetail !=undefined){
+      console.log("From the parent component " , this.editedDetail.value.editedDetail);
+      this.categoryCreationForm.patchValue(this.editedDetail.value.editedDetail);
+      this.localConfig.isEditedDetailsFound= false;
+    }
+   
   }
 
   onSubmmitCategoryDetails() {

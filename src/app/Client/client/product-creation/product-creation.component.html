@@ -1,4 +1,5 @@
-<mat-toolbar color="primary">
+<app-home-page *ngIf="localConfig.isEditedDetailsFound"></app-home-page>
+<mat-toolbar *ngIf="localConfig.isEditedDetailsFound">
   <mat-toolbar-row>
     <span>Product Listing and Creation Page</span>
     <span class="spacer"></span>

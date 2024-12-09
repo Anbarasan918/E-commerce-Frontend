@@ -1,0 +1,24 @@
+<mat-dialog-actions align="start">
+  <h2 mat-dialog-title>Edit Details</h2>
+</mat-dialog-actions>
+<mat-dialog-actions align="end">
+  <button mat-icon-button (click)="onCancel()">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-dialog-actions>
+
+<mat-dialog-content>
+  <app-category-creation
+    [editedDetail]="editForm"
+    *ngIf="editForm.value.fromComponent == 'category-listing'"
+  ></app-category-creation>
+
+  <app-product-creation
+    [editedDetail]="editForm"
+    *ngIf="editForm.value.fromComponent == 'product-listing'"
+  ></app-product-creation>
+</mat-dialog-content>
+<!-- <mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions> -->

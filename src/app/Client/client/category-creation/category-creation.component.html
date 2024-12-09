@@ -1,4 +1,5 @@
-<mat-toolbar color="primary">
+<app-home-page *ngIf="localConfig.isEditedDetailsFound"></app-home-page>
+<mat-toolbar *ngIf="localConfig.isEditedDetailsFound">
   <mat-toolbar-row>
     <span>Category Creation Page</span>
     <span class="spacer"></span>
@@ -33,7 +34,7 @@
           id="CategoryName"
           name="CategoryName"
           placeholder="Please Enter the Category Name"
-          formControlName="category_name"
+          formControlName="name"
         />
       </mat-form-field>
 

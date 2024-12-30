@@ -19,7 +19,7 @@ export class LoginPageComponentComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.loginFormSection);
     this.loginFormSection = this.formBuilder.group({
-      email_id: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     })
   }
@@ -28,6 +28,7 @@ export class LoginPageComponentComponent implements OnInit {
     let formData = this.loginFormSection.value;
     this.commonService.validateUserLogin(formData).subscribe((response: any) => {
       if (response.Status == "SUCCESS") {
+        this.commonService.SessionJWTToken = response.jwtToken;
         this.router.navigateByUrl('/homePage');
       }
     });;

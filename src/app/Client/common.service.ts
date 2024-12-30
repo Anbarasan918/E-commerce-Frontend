@@ -10,16 +10,18 @@ export class CommonService {
 
   constructor(private http: HttpClient) { }
 
-  private registerApiUrl = '/appApi/api/registrationDetails'; // Update this if using a proxy
-  private loginApiUrl = '/appApi/api/loginConntroller'; // Update this if using a proxy
-  private productCreationUrl = '/appApi/api/productCreation';
-  private catagoryCreationUrl = '/appApi/api/catagoryCreation';
-  private productListingUrl = '/appApi/api/productListing';
-  private catagoriesList ='/appApi/api/catagoriesList';
-  private editCategory ='/appApi/api/editCategoryDetail';
-  private deleteCategory = '/appApi/api/deleteCategory';
-  private editProduct = '/appApi/api/editProduct';
-  private deleteProduct = '/appApi/api/deleteProduct';
+  SessionJWTToken : any;
+
+  private registerApiUrl = '/appApi/api/auth/registrationDetails'; // Update this if using a proxy
+  private loginApiUrl = '/appApi/api/auth/login'; // Update this if using a proxy
+  private productCreationUrl = '/appApi/api/product/productCreation';
+  private catagoryCreationUrl = '/appApi/api/product/catagoryCreation';
+  private productListingUrl = '/appApi/api/product/productListing';
+  private catagoriesList ='/appApi/api/product/catagoriesList';
+  private editCategory ='/appApi/api/product/editCategoryDetail';
+  private deleteCategory = '/appApi/api/product/deleteCategory';
+  private editProduct = '/appApi/api/product/editProduct';
+  private deleteProduct = '/appApi/api/product/deleteProduct';
 
   registerUserDetails(formdata: any) :Observable<any> {
    return this.http.post(this.registerApiUrl, formdata);

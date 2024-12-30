@@ -32,25 +32,42 @@
     </div>
 </div> -->
 
-
 <mat-card class="form-card">
-    <mat-card-title>Login</mat-card-title>
-    <mat-card-content>
-        <form [formGroup]="loginFormSection" (ngSubmit)="onSubmmitLoginPageDetails()">
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>E-Mail ID</mat-label>
-                <input matInput type="email" id="emailId" name="emailId" placeholder="Please Enter the EmailID"
-                    formControlName="email_id">
-            </mat-form-field>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form
+      [formGroup]="loginFormSection"
+      (ngSubmit)="onSubmmitLoginPageDetails()"
+    >
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>E-Mail ID</mat-label>
+        <input
+          matInput
+          type="email"
+          id="emailId"
+          name="emailId"
+          placeholder="Please Enter the EmailID"
+          formControlName="email"
+        />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Password</mat-label>
-                <input matInput type="password" placeholder="Enter your password" formControlName="password">
-            </mat-form-field>
-            <div class="link-center">
-                <a [routerLink]="['/registerPage']">Click here to proceed Registration</a>
-            </div>
-            <button mat-raised-button color="primary" class="full-width">Login</button>
-        </form>
-    </mat-card-content>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Enter your password"
+          formControlName="password"
+        />
+      </mat-form-field>
+      <div class="link-center">
+        <a [routerLink]="['/registerPage']"
+          >Click here to proceed Registration</a
+        >
+      </div>
+      <button mat-raised-button color="primary" class="full-width">
+        Login
+      </button>
+    </form>
+  </mat-card-content>
 </mat-card>

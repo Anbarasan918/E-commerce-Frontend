@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from '../common.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-page-component',
@@ -13,6 +14,7 @@ export class LoginPageComponentComponent implements OnInit {
   loginFormSection: any;
   constructor(private formBuilder: FormBuilder,
     private commonService: CommonService,
+    @Inject(CookieService) private cookieService :CookieService,
     private router: Router) { }
 
 
@@ -28,7 +30,7 @@ export class LoginPageComponentComponent implements OnInit {
     let formData = this.loginFormSection.value;
     this.commonService.validateUserLogin(formData).subscribe((response: any) => {
       if (response.Status == "SUCCESS") {
-        this.commonService.SessionJWTToken = response.jwtToken;
+        this.cookieService.set('jwtToken', response.jwtToken); 
         this.router.navigateByUrl('/homePage');
       }
     });;

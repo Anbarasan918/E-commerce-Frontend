@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { CommonService } from '../../common.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 export interface ProductListingInterface {
@@ -19,14 +20,16 @@ export interface ProductListingInterface {
 })
 export class ProductListingComponent implements OnInit {
 
-  displayedColumns: string[] = ['product_name', 'brand', 'category_Description', 'inventory','edit','delete','refresh'];
+  displayedColumns: string[] = ['product_name', 'brand', 'category_Description', 'inventory','edit','delete','add_to_cart','refresh'];
   dataSource:any[] = [];
   editedDetail: any;
   constructor(private commonService: CommonService,
-    private dialog: MatDialog) {  }
+    private dialog: MatDialog,
+  @Inject(CookieService) private cookieService :CookieService) {  }
 
   refreshProductListing(){
     this.commonService.retrieveProductListing().subscribe((response:any)=>{
+      // this.cookieService.set('jwtToken', response.jwtToken, new Date('2025-02-25'), '/', '', true, 'Strict') 
         this.dataSource = response;
     });  
   }
@@ -59,6 +62,12 @@ export class ProductListingComponent implements OnInit {
     console.log("id =>" , id);
     
     this.commonService.deleteProductDetail(id).subscribe((item : any) => {
+      console.log(item);
+    });
+  }
+
+  addToCart(elements : any){
+    this.commonService.addToCartDetail(elements).subscribe((item : any) => {
       console.log(item);
     });
   }

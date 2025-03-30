@@ -7,8 +7,8 @@ import { ClientModule } from './Client/client/client.module';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthendicatePageComponent } from './Client/authendicate-page/authendicate-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableDataSource } from '@angular/material/table';
 import { JwtInterceptorInterceptor } from './Client/jwt-interceptor.interceptor';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { JwtInterceptorInterceptor } from './Client/jwt-interceptor.interceptor'
     HttpClientModule,
     BrowserAnimationsModule
     ],
-  providers: [{provide : HTTP_INTERCEPTORS, useClass:JwtInterceptorInterceptor, multi:true}],
+  providers: [{provide : HTTP_INTERCEPTORS, useClass:JwtInterceptorInterceptor, multi:true},CookieService
+  ],
   bootstrap: [AppComponent, ClientModule]
 })
 export class AppModule { }

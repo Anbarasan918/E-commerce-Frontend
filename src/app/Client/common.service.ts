@@ -10,8 +10,6 @@ export class CommonService {
 
   constructor(private http: HttpClient) { }
 
-  SessionJWTToken : any;
-
   private registerApiUrl = '/appApi/api/auth/registrationDetails'; // Update this if using a proxy
   private loginApiUrl = '/appApi/api/auth/login'; // Update this if using a proxy
   private productCreationUrl = '/appApi/api/product/productCreation';
@@ -22,6 +20,7 @@ export class CommonService {
   private deleteCategory = '/appApi/api/product/deleteCategory';
   private editProduct = '/appApi/api/product/editProduct';
   private deleteProduct = '/appApi/api/product/deleteProduct';
+  private addToCart = '/appApi/api/product/addToCart';
 
   registerUserDetails(formdata: any) :Observable<any> {
    return this.http.post(this.registerApiUrl, formdata);
@@ -63,4 +62,7 @@ export class CommonService {
     return this.http.delete(this.deleteProduct+ "/" + id);
   }
 
+  addToCartDetail(addTocartDetails : any){
+    return this.http.post(this.addToCart, addTocartDetails);
+  }
 }

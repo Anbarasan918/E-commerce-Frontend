@@ -7,14 +7,15 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CommonService } from './common.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class JwtInterceptorInterceptor implements HttpInterceptor {
 
-  constructor(private commonService : CommonService) {}
+  constructor(private commonService : CommonService,private cookieService: CookieService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    const idToken = this.commonService.SessionJWTToken;
+    const idToken = this.cookieService.get('jwtToken');
 
     if (idToken) {
         const cloned = request.clone({
@@ -24,7 +25,7 @@ export class JwtInterceptorInterceptor implements HttpInterceptor {
 
         return next.handle(cloned);
     }
-    else {
+    else { 
         return next.handle(request);
     }
 }

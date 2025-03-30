@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonService } from '../../common.service';
+import { CookieService } from 'ngx-cookie-service';
 
 interface Categories {
   id: string;
@@ -20,7 +21,8 @@ export class ProductCreationComponent implements OnInit {
   @Input() editedDetail:any;
 
   constructor(private formBuilder: FormBuilder,
-    private commonService: CommonService
+    private commonService: CommonService,
+    @Inject(CookieService) private cookieService :CookieService,
   ) { }
  
 
@@ -48,6 +50,7 @@ export class ProductCreationComponent implements OnInit {
 
   retrieveCatagories() {
     this.commonService.retrieveCatagoriesAsList().subscribe((item : any) => {
+      // this.cookieService.set('jwtToken', item.jwtToken, new Date('2025-01-01'), '/', '', true, 'Strict') 
       this.categoriesList = item;
     });
   }

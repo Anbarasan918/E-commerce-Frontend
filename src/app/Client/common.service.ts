@@ -20,7 +20,11 @@ export class CommonService {
   private deleteCategory = '/appApi/api/product/deleteCategory';
   private editProduct = '/appApi/api/product/editProduct';
   private deleteProduct = '/appApi/api/product/deleteProduct';
-  private addToCart = '/appApi/api/product/addToCart';
+  private addToCart = '/appApi/api/cart/add';
+  private cartDetails ='/appApi/api/cart/summary';
+  private deleteCartItem ='/appApi/api/cart/items';
+  private quantityAndPriceUpdationUrl ="/appApi/api/cart/items";
+
 
   registerUserDetails(formdata: any) :Observable<any> {
    return this.http.post(this.registerApiUrl, formdata);
@@ -64,5 +68,17 @@ export class CommonService {
 
   addToCartDetail(addTocartDetails : any){
     return this.http.post(this.addToCart, addTocartDetails);
+  }
+
+  retrieveCartDetails() : Observable<any>{
+    return this.http.get(this.cartDetails);
+  }
+
+  deleteCartItemById(id:any){
+      return this.http.delete(this.deleteCartItem+ "/" + id);
+  }
+
+  quantityAndPriceUpdation(item:any){
+    return this.http.put(this.quantityAndPriceUpdationUrl + "/" + item.id, item);
   }
 }

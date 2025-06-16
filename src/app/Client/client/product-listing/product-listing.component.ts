@@ -20,7 +20,7 @@ export interface ProductListingInterface {
 })
 export class ProductListingComponent implements OnInit {
 
-  displayedColumns: string[] = ['product_name', 'brand', 'category_Description', 'inventory','edit','delete','add_to_cart','refresh'];
+  displayedColumns: string[] = ['productName', 'brand', 'categoryDescription', 'inventory','edit','delete','add_to_cart','refresh'];
   dataSource:any[] = [];
   editedDetail: any;
   constructor(private commonService: CommonService,
@@ -35,6 +35,7 @@ export class ProductListingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.refreshProductListing();
   }
 
   onEdit(id:any){
@@ -67,6 +68,8 @@ export class ProductListingComponent implements OnInit {
   }
 
   addToCart(elements : any){
+    elements.productId= elements.id;
+    elements.quantity= 1;
     this.commonService.addToCartDetail(elements).subscribe((item : any) => {
       console.log(item);
     });

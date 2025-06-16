@@ -11,6 +11,62 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Card Details</h4>
+        <div class="cart-container">
+          <h2 class="mat-headline mb-4">
+            Your Cart ({{ cartItems.length }} items)
+          </h2>
+
+          <!-- Loop over each item -->
+          <mat-card class="cart-item-card" *ngFor="let item of cartItems">
+            <mat-card-content>
+              <div class="item-row">
+                <img
+                  [src]="item.image"
+                  alt="{{ item.name }}"
+                  class="product-img"
+                />
+
+                <div class="item-info">
+                  <div class="item-name">
+                    {{ item.productName }} - {{ item.brand }}
+                  </div>
+
+                  <!-- <div *ngIf="item.shipDate" class="text-orange">
+                    Estimated Ship Date: {{ item.shipDate }}
+                  </div>
+
+                  <div *ngIf="item.fuelSource" class="text-muted">
+                    Fuel Source: {{ item.fuelSource }}
+                  </div> -->
+
+                  <div class="price">Price: ₹{{ item.price.toFixed(2) }}</div>
+
+                  <div class="item-total">
+                    Total: ₹{{ item.total.toFixed(2) }}
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+              <div class="actions-container">
+                <div class="quantity-selector">
+                  <button mat-mini-button (click)="decrease(item)">
+                    <mat-icon>remove</mat-icon>
+                  </button>
+                  <span>{{ item.quantity }}</span>
+                  <button mat-mini-button (click)="increase(item)">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+
+                <button mat-icon-button color="warn" (click)="remove(item)">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </div>
       </div>
     </div>
   </div>
@@ -18,7 +74,40 @@
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Shipping Details</h4>
+        <!-- Summary Section -->
+        <mat-card class="summary-card">
+          <mat-card-content>
+            <div class="summary-row">
+              <span>Subtotal:</span>
+              <span>₹{{ subtotal.toFixed(2) }}</span>
+            </div>
+            <div class="summary-row">
+              <span>Sales Tax:</span>
+              <span>₹{{ tax.toFixed(2) }}</span>
+            </div>
+            <div class="summary-row total-row">
+              <span>Grand Total:</span>
+              <span>₹{{ total.toFixed(2) }}</span>
+            </div>
+          </mat-card-content>
 
+          <!-- <mat-card-actions>
+              <mat-form-field appearance="outline" class="coupon-field">
+                <mat-label>Coupon Code</mat-label>
+                <input
+                  matInput
+                  placeholder="Enter code"
+                  [(ngModel)]="couponCode"
+                />
+              </mat-form-field>
+              <div class="free-shipping-msg">
+                Congrats, you're eligible for <strong>Free Shipping</strong>
+              </div>
+              <button mat-raised-button color="primary" class="checkout-btn">
+                Check out
+              </button>
+            </mat-card-actions> -->
+        </mat-card>
         <!-- <p class="card-text">Some example text. Some example text.</p>
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a> -->

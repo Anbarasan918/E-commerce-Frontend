@@ -28,11 +28,12 @@ export class ProductCreationComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
-      product_name: ['', Validators.required],
+      productName: ['', Validators.required],
       brand: ['', Validators.required],
       category: ['', Validators.required],
       inventory: ['', Validators.required],
-      category_Description: ['']
+      categoryDescription: [''],
+      price: ['',Validators.required]
     })
     this.retrieveCatagories();
     
@@ -45,7 +46,7 @@ export class ProductCreationComponent implements OnInit {
   }
 
   setCategoryName(selectedItem : any){
-      this.productForm.patchValue({"category_Description":selectedItem.name});
+      this.productForm.patchValue({"categoryDescription":selectedItem.name});
   }
 
   retrieveCatagories() {

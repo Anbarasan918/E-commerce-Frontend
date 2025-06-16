@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginPageComponentComponent } from '../login-page-component/login-page-component.component';
 import { RegisterPageComponentComponent } from '../register-page-component/register-page-component.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -54,7 +54,8 @@ import { CookieService } from 'ngx-cookie-service';
     RouterModule,
     MatTableModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class ClientModule { }

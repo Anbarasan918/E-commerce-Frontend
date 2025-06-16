@@ -68,68 +68,121 @@
     </div>
 </div> -->
 
-
 <mat-card class="form-card">
-    <mat-card-title>Registration Page</mat-card-title>
-    <mat-card-content>
-        <form [formGroup]="bioSection">
-            <!-- Registration form page-->
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>User Id</mat-label>
-                <input matInput type="number" id="userid" name="userid" placeholder="Enter the User Id"
-                    formControlName="user_id">
-            </mat-form-field>
+  <mat-card-title>Registration Page</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="bioSection">
+      <!-- Registration form page-->
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>User Id</mat-label>
+        <input
+          matInput
+          type="number"
+          id="userid"
+          name="userid"
+          placeholder="Enter the User Id"
+          formControlName="userId"
+        />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Name</mat-label>
-                <input matInput type="text" id="name" name="userName" placeholder="Enter the Name"
-                    formControlName="name">
-            </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          id="name"
+          name="userName"
+          placeholder="Enter the Name"
+          formControlName="name"
+        />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Email Id</mat-label>
-                <input matInput type="email" id="emailid" name="emailId" placeholder="Enter the Email Id"
-                    formControlName="email_id">
-            </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email Id</mat-label>
+        <input
+          matInput
+          type="email"
+          id="emailId"
+          name="emailId"
+          placeholder="Enter the Email Id"
+          formControlName="emailId"
+        />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Mobile Number</mat-label>
-                <input matInput type="number" id="mobileNumber" name="mobileNumber"
-                    placeholder="Enter the Mobile Number" formControlName="mobile_number">
-            </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Mobile Number</mat-label>
+        <input
+          matInput
+          type="number"
+          id="mobileNumber"
+          name="mobileNumber"
+          placeholder="Enter the Mobile Number"
+          formControlName="mobileNumber"
+        />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Gender</mat-label>
-                <input matInput type="text" id="gender" name="gender" placeholder="Enter the Gender"
-                    formControlName="gender">
-            </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Gender</mat-label>
+        <input
+          matInput
+          type="text"
+          id="gender"
+          name="gender"
+          placeholder="Enter the Gender"
+          formControlName="gender"
+        />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Age</mat-label>
-                <input matInput type="number" id="age" name="age" placeholder="Enter the Age" formControlName="age">
-            </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Age</mat-label>
+        <input
+          matInput
+          type="number"
+          id="age"
+          name="age"
+          placeholder="Enter the Age"
+          formControlName="age"
+        />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>New Password</mat-label>
-                <input matInput type="password" id="newPassword" name="newPassword" placeholder="Enter the New Password"
-                    formControlName="newPassword">
-            </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>New Password</mat-label>
+        <input
+          matInput
+          type="password"
+          id="newPassword"
+          name="newPassword"
+          placeholder="Enter the New Password"
+          formControlName="newPassword"
+        />
+      </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Confirm Password</mat-label>
-                <input matInput type="password" id="confirmPassword" name="confirmPassword"
-                    placeholder="Confirm Password" formControlName="confirmPassword">
-            </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          matInput
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          formControlName="confirmPassword"
+        />
+      </mat-form-field>
 
-            <div class="link-center">
-                <a [routerLink]="['/loginPage']">Click here to route to Login page</a>
-            </div>
+      <div class="link-center">
+        <a [routerLink]="['/loginPage']">Click here to route to Login page</a>
+      </div>
 
-            <div>
-                <button mat-raised-button color="primary" (click)="onSubmmitRegisterPageDetails()"
-                    type="button">Register &
-                    Proceed</button>
-            </div>
-        </form>
-    </mat-card-content>
+      <div>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onSubmmitRegisterPageDetails()"
+          type="button"
+        >
+          Register & Proceed
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
 </mat-card>

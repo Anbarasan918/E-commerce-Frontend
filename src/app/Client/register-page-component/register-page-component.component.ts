@@ -20,10 +20,10 @@ export class RegisterPageComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.bioSection = this.formBuilder.group({
-      user_id: ['', Validators.required],
+      userId: ['', Validators.required],
       name: ['', Validators.required],
-      email_id: ['', Validators.required],
-      mobile_number: ['', Validators.required],
+      emailId: ['', Validators.required],
+      mobileNumber: ['', Validators.required],
       gender: ['', Validators.required],
       age: ['', Validators.required],
       newPassword: ['', Validators.required],
